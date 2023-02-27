@@ -72,7 +72,11 @@ function ImagesLoaded( elem, options, onAlways ) {
 
   this.getImages();
   // add jQuery Deferred object
-  if ( $ ) this.jqDeferred = new $.Deferred();
+  // if ( $ ) this.jqDeferred = new $.Deferred();
+  if ( $ && $.Deferred ) {
+    // add jQuery Deferred object
+    this.jqDeferred = new $.Deferred();
+  }
 
   // HACK check async to allow time to bind listeners
   setTimeout( this.check.bind( this ) );
